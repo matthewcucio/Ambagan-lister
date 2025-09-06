@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Ambagan Lister", layout="centered")
+st.set_page_config(page_title="Bayad mo BOI", layout="centered")
 
-st.title("💸 Ambagan Lister with Downpayment")
+st.title("💸 BAYAD COURT BOI 💸")
 
 # Total Contribution
-total_amount = st.number_input("Enter the total amount needed (₱):", min_value=0, step=50, format="%d")
+total_amount = st.number_input("Enter the total amount needed (₱):", min_value=0, step=10, format="%d")
 
 # Number of People
 num_people = st.number_input("How many people will contribute?", min_value=1, step=1, format="%d")
@@ -14,7 +14,7 @@ num_people = st.number_input("How many people will contribute?", min_value=1, st
 # 🔹 Downpayment Section
 st.subheader("💰 Downpayment Section")
 
-downpayment_total = st.number_input("Enter total downpayment amount (₱):", min_value=0, step=50, format="%d")
+downpayment_total = st.number_input("Enter total downpayment amount (₱):", min_value=0, step=10, format="%d")
 down_contributors = st.number_input("How many people paid the downpayment?", min_value=0, step=1, format="%d")
 
 downpayers = []
@@ -23,7 +23,7 @@ for i in range(int(down_contributors)):
     with col1:
         d_name = st.text_input(f"Downpayer {i+1} Name", key=f"d_name_{i}")
     with col2:
-        d_paid = st.number_input("Paid (₱)", min_value=0, step=50, format="%d", key=f"d_paid_{i}")
+        d_paid = st.number_input("Paid (₱)", min_value=0, step=10, format="%d", key=f"d_paid_{i}")
 
     if not d_name:
         d_name = f"Downpayer {i+1}"
@@ -41,12 +41,12 @@ if total_amount > 0 and num_people > 0:
     for i in range(int(num_people)):
         col1, col2 = st.columns([2, 1])
         with col1:
-            name = st.text_input(f"Name", key=f"name_{i}")
+            name = st.text_input(f"Kupal {i+1}", key=f"name_{i}")
         with col2:
-            paid = st.number_input("Paid (₱)", min_value=0, step=50, format="%d", key=f"paid_{i}")
+            paid = st.number_input("Paid (₱)", min_value=0, step=10, format="%d", key=f"paid_{i}")
 
         if not name:
-            name = f"Person {i+1}"
+            name = f"Kopal {i+1}"
 
         contributors.append([name, paid])
 
